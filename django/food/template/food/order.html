@@ -1,0 +1,84 @@
+{% extends 'food/base.html' %}
+{% block title %} Order {% endblock %}
+{% load static %}
+
+{% block content %}
+
+<div class="small-sontainer cart-page" style="padding: 10px;">
+    {% if user.is_authenticated %}
+    
+        <h5>Welcome {{ user.username }}</h5><br>
+    
+    {% endif %}
+    <table>
+        <!-- <tr>
+            <th>Name</th>
+            <th>Size</th>
+            <th>price</th>
+            <th>removee</th>
+        </tr> -->
+        <tr style="margin-top: 10px;">
+            <td >
+                <div class="cart-info">
+                    <div id="name">
+
+                    </div>
+                </div>
+            </td>
+            <td>
+                <div class="cart-info">
+                    <div id="size">
+
+                    </div>
+                </div>
+            </td>
+            <td>
+                <div class="cart-info">
+                    <div id="price">
+
+                    </div>
+                </div>
+            </td>
+
+            <td>
+                <div>
+                    <div id="rm">
+
+                    </div>
+                </div>
+            </td>
+
+
+        </tr>
+
+    </table>
+    <div class="totalprice">
+        <table>
+            <tr>
+                <td id="total">
+                    total
+                </td>
+                
+            </tr>
+
+        </table>
+    </div>
+</div>
+<div class="textbox" style="padding: 10px;">
+    <div class="tb">
+        <h2 class="mb-4">Address</h2>
+        {% csrf_token %}
+        <textarea name="message" id="message" , cols="40" , rows="5" required></textarea>
+        {% if user.is_authenticated %}
+        <div>
+            <button type="submit" class="btn-success" onclick="order()">Submit</button>
+        </div>
+        {% else %}
+        <div>
+            <button><a href="{% url 'food:login' %}" >Login</a></button>
+        </div>
+        {% endif %}
+    </div>
+</div>
+<script src="{% static 'food/js/cart.js' %}"></script>
+{% endblock %}

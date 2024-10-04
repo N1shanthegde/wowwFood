@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% load static %}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us - wowFOOD</title>
+    <link rel="stylesheet" href="{% static 'food/css/contact.css' %}">
+</head>
+<body>
+    <div class="container">
+        <a href="{% url 'index' %}" class="home">Home</a></p>
+        <h1>Contact Us</h1>
+        <form id="contactForm">
+            <div class="form-group">
+                <label for="name">Name:</label>
+                <input type="text" id="name" name="name" required>
+            </div>
+            <div class="form-group">
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" required>
+            </div>
+            <div class="form-group">
+                <label for="message">Message:</label>
+                <textarea id="message" name="message" required></textarea>
+            </div>
+            <button type="submit">Send Message</button>
+            
+        </form>
+        <div id="statusMessage"></div>
+    </div>
+    <script src="{% static 'food/js/contact.js' %}"></script>   
+    <!-- contact.js -->
+</body>
+</html>

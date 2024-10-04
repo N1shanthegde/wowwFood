@@ -1,0 +1,55 @@
+{% extends 'food/base.html' %}
+{% block title %}Home {% endblock %}
+{% block content %}
+<section class="food-search text-center home">
+    <div class="container">
+        <h5>
+            wowFOOD -<span>THE FOOD HEAVEN</span>
+        </h5>
+        <h6>Discover The Best Food And Drinks</h6>
+
+    </div>
+</section>
+
+<!-- fOOD sEARCH Section Ends Here -->
+
+
+
+<!-- CAtegories Section Starts Here -->
+<section class="categories">
+    <div class="container">
+        <h2 class="text-center">Explore Foods</h2>
+
+        <a href="{% url 'food:pizza' %}">
+            <div class="box-3 float-container">
+                <img src="https://media.istockphoto.com/id/938742222/photo/cheesy-pepperoni-pizza.jpg?s=612x612&w=0&k=20&c=D1z4xPCs-qQIZyUqRcHrnsJSJy_YbUD9udOrXpilNpI="
+                    alt="Pizza" class="img-responsive img-curve">
+
+                <h3 class="float-text text-white">Pizza</h3>
+            </div>
+        </a>
+
+        <a href="{% url 'food:burger' %}">
+            <div class="box-3 float-container">
+                <img src="https://media.istockphoto.com/id/1309352410/photo/cheeseburger-with-tomato-and-lettuce-on-wooden-board.jpg?s=612x612&w=0&k=20&c=lfsA0dHDMQdam2M1yvva0_RXfjAyp4gyLtx4YUJmXgg="
+                    alt="Burger" class="img-responsive img-curve">
+
+                <h3 class="float-text text-white">Burger</h3>
+            </div>
+        </a>
+
+        <a href="{% url 'food:moms' %}">
+            <div class="box-3 float-container">
+                <img src="https://media.istockphoto.com/id/1292635321/photo/veg-steam-momo-nepalese-traditional-dish-momo-stuffed-with-vegetables-and-then-cooked-and.jpg?s=612x612&w=0&k=20&c=NyxQvDnBq7Ki09Zi21JEMxpuZ_uVr45ZBSavqXJ2T1s="
+                    alt="Momo" class="img-responsive img-curve">
+
+                <h3 class="float-text text-white">Momo</h3>
+            </div>
+        </a>
+
+        <div class="clearfix"></div>
+    </div>
+</section>
+<!-- Categories Section Ends Here -->
+
+{% endblock %}

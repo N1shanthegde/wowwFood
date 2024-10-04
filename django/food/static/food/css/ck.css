@@ -1,0 +1,60 @@
+.cart-page{
+    margin: 80px auto;
+
+}
+table{
+    width:100%;
+    border-collapse:collapse ;
+}
+.cart-info{
+    display: flex;
+    flex-wrap: wrap;
+}
+th{
+    text-align: left;
+    padding: 5px;
+    color: #fff;
+    background:orange ;
+    font-weight: normal;
+
+}
+td{
+    padding: 10px 5px;
+}
+.totalprice{
+display: flex;
+justify-content: flex-end;
+}
+.totalprice table{
+    border-top: 3px solid #ff523b;
+    width: 100%;
+    max-width: 470px;
+}
+td:last-child{
+    text-align: right;
+}
+.tb{
+    flex-basis: 45%;
+}
+input{
+    width: 35%;
+    border:none;
+    
+    border-bottom: 1px solid #ccc;
+    outline:none;
+    padding-bottom: 5px;
+    margin-top: 15px;
+}
+button{
+    background: rgb(133, 130, 130);
+    width: 100px;
+    border: none;
+    color: #fff;
+    height: 35px;
+border-radius: 30px;
+margin-top: 20px;
+
+}
+button:hover{
+    box-shadow: 0px 5px 10px 0px rgba(28,0,181,0.3);
+}

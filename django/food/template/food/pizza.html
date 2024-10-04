@@ -1,0 +1,52 @@
+{% extends 'food/base.html' %}
+{% block title %} Pizza {% endblock %}
+{% load static %}
+
+{% block content %}
+    <!-- fOOD MEnu Section Starts Here -->
+    <section class="food-menu">
+        <div class="container">
+            <h2 class="text-center">Our Pizzas</h2>
+            {% for pizza in pizzas %}
+            <div class="food-menu-box">
+                <div class="food-menu-img">
+                    <img src="{{pizza.pimg}}" alt="Pizza" class="img-responsive img-curve">
+                </div>
+
+                <div class="food-menu-desc">
+                    <h4 id="piz{{pizza.id}}">{{pizza.name}}</h4>
+                    <div class="form-check-inline">
+                        <label for="form-check-label">
+                            <input class="form-check-input" type="radio" name="pizza{{pizza.id}}" value="{{  pizza.priceM|floatformat:2 }}" checked>
+                            M: ₹{{ pizza.priceM }}
+                        </label>
+                    </div>
+                    <div class="form-check-inline">
+                        <label for="form-check-label">
+                            <input class="form-check-input" name="pizza{{pizza.id}}" value="{{ pizza.priceL|floatformat:2 }}" type="radio" >
+                            L: ₹{{ pizza.priceL }}
+                        </label>
+                    </div>
+                    <p class="food-detail">
+                        Made with {{pizza.material}}.
+                        Serves {{pizza.calories}} calories.
+                    </p>
+                    <br>
+
+                    <a  class="btn btn-primary" onclick="addPizza('{{pizza.id}}')">Add to Cart</a> 
+                </div>
+            </div>
+            {% endfor %}
+        <div class="clearfix orders">
+            <!-- <div class="bg-dark p-4 rounded text-light">
+                <h2 class="text-center">Order List</h2>
+                <ol id="pcart"></ol>
+                <h4 class="text-right" id="ptotal">Total: 0$</h4>
+            </div>            -->
+        </div>
+
+    </section>
+    <!-- fOOD Menu Section Ends Here -->
+    <script src="{% static 'food/js/main.js' %}"></script>
+    <script src="{% static 'food/js/order.js' %}"></script>
+{% endblock %}

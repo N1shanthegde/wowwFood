@@ -1,0 +1,53 @@
+{% extends 'food/base.html' %}
+{% block title %} Burgers {% endblock %}
+{% load static %}
+
+{% block content %}
+    <!-- fOOD MEnu Section Starts Here -->
+    <section class="food-menu">
+        <div class="container">
+            <h2 class="text-center">Our Burgers</h2>
+            {% for burger in burgers %}
+            <div class="food-menu-box">
+                <div class="food-menu-img">
+                    <img src="{{burger.bimg}}" alt="Burgers" class="img-responsive img-curve">
+                </div>
+
+                <div class="food-menu-desc">
+                    <h4 id="bur{{burger.id}}">{{burger.name}}</h4>
+                    <div class="form-check-inline">
+                        <label for="form-check-label">
+                            <input class="form-check-input" type="radio" name="burger{{burger.id}}" value="{{  burger.priceM|floatformat:2 }}" checked>
+                            M: ₹{{ burger.priceM }}
+                        </label>
+                    </div>
+                    <div class="form-check-inline">
+                        <label for="form-check-label">
+                            <input class="form-check-input" name="burger{{burger.id}}" value="{{ burger.priceL|floatformat:2 }}" type="radio" >
+                            L: ₹{{ burger.priceL }}
+                        </label>
+                    </div>
+                    <p class="food-detail">
+                        Made with {{burger.material}}.
+                        Serves {{burger.calories}} calories.
+                    </p>
+                    <br>
+
+                    <!-- <a  class="btn btn-primary" ><button onclick="addBurger('{{burger.id}}')">Add to Cart</button></a>  -->
+                    <a  class="btn btn-primary" onclick="addBurger('{{burger.id}}')">Add to Cart</a> 
+                </div>
+            </div>
+            {% endfor %}
+        <div class="clearfix orders">
+            <!-- <div class="bg-dark p-4 rounded text-light">
+                <h2 class="text-center">Order List</h2>
+                <ol id="bcart"></ol>
+                <h4 class="text-right" id="btotal">Total: 0$</h4>
+            </div>            -->
+        </div>
+
+    </section>
+    <!-- fOOD Menu Section Ends Here -->
+    <script src="{% static 'food/js/main.js' %}"></script>
+    <script src="{% static 'food/js/border.js' %}"></script>
+{% endblock %}

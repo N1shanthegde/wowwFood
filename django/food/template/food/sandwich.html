@@ -1,0 +1,48 @@
+{% extends 'food/base.html' %}
+{% block title %} sandwichs {% endblock %}
+{% load static %}
+
+{% block content %}
+    <!-- fOOD MEnu Section Starts Here -->
+    <section class="food-menu">
+        <div class="container">
+            <h2 class="text-center">Our sandwichs</h2>
+            {% for sandwich in sandwichs %}
+            <div class="food-menu-box">
+                <div class="food-menu-img">
+                    <img src="{{sandwich.simg}}" alt="sandwichs" class="img-responsive img-curve">
+                </div>
+
+                <div class="food-menu-desc">
+                    <h4 id="sand{{sandwich.id}}">{{sandwich.name}}</h4>
+                    <div class="form-check-inline">
+                        <label for="form-check-label">
+                            <input class="form-check-input" type="radio" name="sandwich{{sandwich.id}}" value="{{  sandwich.priceM|floatformat:2 }}" checked>
+                            Price: ₹{{ sandwich.priceM }}
+                        </label>
+                    </div>
+                  
+                    <p class="food-detail">
+                        Made with {{sandwich.material}}.
+                        Serves {{sandwich.calories}} calories.
+                    </p>
+                    <br>
+
+                    <!-- <a  class="btn btn-primary" ><button onclick="addsandwich('{{sandwich.id}}')">Add to Cart</button></a>  -->
+                    <a  class="btn btn-primary" onclick="addSandwich('{{sandwich.id}}')">Add to Cart</a> 
+                </div>
+            </div>
+            {% endfor %}
+        <div class="clearfix orders">
+            <!-- <div class="bg-dark p-4 rounded text-light">
+                <h2 class="text-center">Order List</h2>
+                <ol id="bcart"></ol>
+                <h4 class="text-right" id="btotal">Total: 0$</h4>
+            </div>            -->
+        </div>
+
+    </section>
+    <!-- fOOD Menu Section Ends Here -->
+    <script src="{% static 'food/js/main.js' %}"></script>
+    <script src="{% static 'food/js/sorder.js' %}"></script>
+{% endblock %}

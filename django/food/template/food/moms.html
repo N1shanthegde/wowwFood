@@ -1,0 +1,41 @@
+{% extends 'food/base.html' %}
+{% block title %} Momoss {% endblock %}
+{% load static %}
+
+{% block content %}
+    <!-- fOOD MEnu Section Starts Here -->
+    <section class="food-menu">
+        <div class="container">
+            <h2 class="text-center">Our momss</h2>
+            {% for moms in momss %}
+            <div class="food-menu-box">
+                <div class="food-menu-img">
+                    <img src="{{moms.mimg}}" alt="momss" class="img-responsive img-curve">
+                </div>
+
+                <div class="food-menu-desc">
+                    <h4 id="mom{{moms.id}}">{{moms.name}}</h4>
+                    <div class="form-check-inline">
+                        <label class="form-check-label">
+                            <input class="form-check-input" type="radio" name="moms{{moms.id}}" value="{{  moms.priceM|floatformat:2 }}" checked>
+                            Price: ₹{{ moms.priceM }}
+                        </label>
+                    </div>
+                   
+                    <p class="food-detail">
+                        Made with {{moms.material}}.
+                        Serves {{moms.calories}} calories.
+                    </p>
+                    <br>
+
+                    <a class="btn btn-primary" onclick="addMoms('{{moms.id}}')">Add to Cart</a> 
+                </div>
+            </div>
+            {% endfor %}
+        <div class="clearfix orders">
+        </div>
+    </section>
+    <!-- fOOD Menu Section Ends Here -->
+    <script src="{% static 'food/js/main.js' %}"></script>
+    <script src="{% static 'food/js/morder.js' %}"></script>
+{% endblock %}
